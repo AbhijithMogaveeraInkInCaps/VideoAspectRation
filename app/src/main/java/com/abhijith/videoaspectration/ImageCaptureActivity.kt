@@ -25,7 +25,8 @@ class ImageCaptureActivity : AppCompatActivity() {
         if (!f.exists()) {
             f.mkdirs()
         }
-        File(f.absolutePath, "temp.jpg")
+        val fileName = String.format("%d.jpg", System.currentTimeMillis())
+        File(f.absolutePath, fileName)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,6 +125,7 @@ class ImageCaptureActivity : AppCompatActivity() {
                 makeToast(getString(R.string.image_capture_success))
                 startActivity(Intent(this@ImageCaptureActivity,ImageCroppingActivity::class.java).apply {
                     putExtra(ImageCroppingActivity.ImagePath,capturedImageFile.absolutePath)
+                    makeToast(capturedImageFile.absolutePath)
                 })
 
             }

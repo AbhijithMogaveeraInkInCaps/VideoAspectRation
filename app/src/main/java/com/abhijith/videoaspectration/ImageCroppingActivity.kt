@@ -9,9 +9,11 @@ import android.os.Environment
 import androidx.appcompat.app.AppCompatActivity
 import com.abhijith.videoaspectration.databinding.ActivityImageCropingBinding
 import com.abhijith.videoaspectration.helper.four_to_five
+import com.abhijith.videoaspectration.helper.makeToast
 import com.abhijith.videoaspectration.helper.one_to_one
 import com.abhijith.videoaspectration.helper.three_to_two
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import jp.wasabeef.glide.transformations.CropTransformation
 import java.io.File
@@ -20,33 +22,46 @@ import java.io.FileOutputStream
 
 class ImageCroppingActivity : AppCompatActivity() {
 
-    lateinit var myPath:String
-    lateinit var binding:ActivityImageCropingBinding
+    val file by lazy {
+        File(intent.getStringExtra(ImagePath)!!)
+    }
+    val uri: Uri by lazy {
+        Uri.fromFile(file)
+    }
+    lateinit var binding: ActivityImageCropingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityImageCropingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        myPath = intent.getStringExtra(ImagePath)!!
+        makeToast(file.absolutePath)
 
-        Glide.with(this).load(Uri.fromFile(File(myPath)))
+        Glide.with(this).load(uri)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .skipMemoryCache(true)
             .apply(RequestOptions().override(one_to_one.width, one_to_one.height))
             .into(binding.ivImagePreview)
 
         binding.btnRatioThreeToTwo.setOnClickListener {
-            Glide.with(this).load(Uri.fromFile(File(myPath)))
+            Glide.with(this).load(uri)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
                 .transform(CropTransformation(three_to_two.width, three_to_two.height))
                 .into(binding.ivImagePreview)
         }
 
         binding.btnRatioFourToFive.setOnClickListener {
-            Glide.with(this).load(Uri.fromFile(File(myPath)))
+            Glide.with(this).load(uri)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
                 .transform(CropTransformation(four_to_five.width, four_to_five.height))
                 .into(binding.ivImagePreview)
         }
 
         binding.btnRatioOneToOne.setOnClickListener {
-            Glide.with(this).load(Uri.fromFile(File(myPath)))
+            Glide.with(this).load(uri)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
                 .transform(CropTransformation(one_to_one.width, one_to_one.height))
                 .into(binding.ivImagePreview)
         }
@@ -63,8 +78,8 @@ class ImageCroppingActivity : AppCompatActivity() {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
 
 
-            startActivity(Intent(this@ImageCroppingActivity,ImageViewActivity::class.java).apply {
-                putExtra(ImagePath,outFile.absolutePath)
+            startActivity(Intent(this@ImageCroppingActivity, ImageViewActivity::class.java).apply {
+                putExtra(ImagePath, outFile.absolutePath)
             })
             outStream.flush()
             outStream.close()
@@ -72,7 +87,7 @@ class ImageCroppingActivity : AppCompatActivity() {
         }
     }
 
-    companion object{
-        val ImagePath:String="ImagePath"
+    companion object {
+        val ImagePath: String = "ImagePath"
     }
 }
