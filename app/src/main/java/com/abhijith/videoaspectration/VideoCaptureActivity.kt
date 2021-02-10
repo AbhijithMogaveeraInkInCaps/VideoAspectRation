@@ -2,7 +2,9 @@ package com.abhijith.videoaspectration
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.Camera
@@ -16,6 +18,8 @@ import com.abhijith.videoaspectration.helper.*
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import java.io.File
+const val video_path="VideoPath"
+const val folder_main = "Filtered Videos"
 
 class VideoCaptureActivity : AppCompatActivity() {
     private val binding: ActivityVideoCaptureBinding by lazy {
@@ -25,12 +29,21 @@ class VideoCaptureActivity : AppCompatActivity() {
     private var camera: Camera? = null
     private var videoCapture: VideoCapture? = null
     private var currentRation = three_to_two
+    private val recordedVideoFile:File by lazy{
+        val f = File(Environment.getExternalStorageDirectory(), folder_main)
+        if (!f.exists()) {
+            f.mkdirs()
+        }
+        File(f.absolutePath, "temp.mp4")
+    }
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         var isRecording = false
+//        Toast.makeText(this, f.absolutePath, Toast.LENGTH_SHORT).show()
+
         binding.buttonRecordVideo.setOnClickListener {
             if (!isRecording) {
                 isRecording = true
@@ -112,9 +125,8 @@ class VideoCaptureActivity : AppCompatActivity() {
 
     @SuppressLint("RestrictedApi")
     private fun startVideoRecording() {
-        val file = File(filesDir.absoluteFile, "temp.mp4")
         val data: VideoCapture.OutputFileOptions =
-            VideoCapture.OutputFileOptions.Builder(file).build()
+            VideoCapture.OutputFileOptions.Builder(recordedVideoFile).build()
         videoCapture?.startRecording(data, ContextCompat.getMainExecutor(this), videoSavedCallback)
     }
 
@@ -131,6 +143,11 @@ class VideoCaptureActivity : AppCompatActivity() {
     private val videoSavedCallback = object : VideoCapture.OnVideoSavedCallback {
         override fun onVideoSaved(outputFileResults: VideoCapture.OutputFileResults) {
             showResultMessage(getString(R.string.video_record_success))
+            Intent(this@VideoCaptureActivity,FilterActivity::class.java).apply {
+                putExtra(video_path,recordedVideoFile.absolutePath)
+                startActivity(this)
+                finish()
+            }
         }
 
         override fun onError(videoCaptureError: Int, message: String, cause: Throwable?) {
