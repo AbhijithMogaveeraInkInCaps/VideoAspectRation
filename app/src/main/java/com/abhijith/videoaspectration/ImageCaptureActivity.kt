@@ -1,7 +1,9 @@
 package com.abhijith.videoaspectration
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.util.Size
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
@@ -18,7 +20,13 @@ class ImageCaptureActivity : AppCompatActivity() {
     private lateinit var camera: Camera
     private lateinit var imageCapture: ImageCapture
     private var currentRation = four_to_five
-
+    private val capturedImageFile:File by lazy{
+        val f = File(Environment.getExternalStorageDirectory(), folder_main)
+        if (!f.exists()) {
+            f.mkdirs()
+        }
+        File(f.absolutePath, "temp.jpg")
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityImageCaptureBinding.inflate(layoutInflater).apply {
@@ -114,6 +122,10 @@ class ImageCaptureActivity : AppCompatActivity() {
         val imageSavedCallback = object : ImageCapture.OnImageSavedCallback {
             override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                 makeToast(getString(R.string.image_capture_success))
+                startActivity(Intent(this@ImageCaptureActivity,ImageCroppingActivity::class.java).apply {
+                    putExtra(ImageCroppingActivity.ImagePath,capturedImageFile.absolutePath)
+                })
+
             }
 
             override fun onError(exception: ImageCaptureException) {
@@ -126,9 +138,8 @@ class ImageCaptureActivity : AppCompatActivity() {
                 )
             }
         }
-        val file = File(filesDir.absoluteFile, "temp.jpg")
         val outputFileOptions: ImageCapture.OutputFileOptions =
-            ImageCapture.OutputFileOptions.Builder(file).build()
+            ImageCapture.OutputFileOptions.Builder(capturedImageFile).build()
         imageCapture.takePicture(
             outputFileOptions,
             ContextCompat.getMainExecutor(this),
