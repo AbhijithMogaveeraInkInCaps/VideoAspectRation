@@ -23,6 +23,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }
+
+/*
+*filters
+* https://github.com/MasayukiSuda/Mp4Composer-android/tree/master/mp4compose/src/main/java/com/daasuu/mp4compose/filter
+*
+* lib
+* https://github.com/MasayukiSuda/Mp4Composer-android
+*
+* */
