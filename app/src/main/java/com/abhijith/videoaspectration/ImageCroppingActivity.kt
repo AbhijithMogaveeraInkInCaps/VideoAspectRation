@@ -1,5 +1,6 @@
 package com.abhijith.videoaspectration
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
@@ -12,6 +13,7 @@ import com.abhijith.videoaspectration.helper.one_to_one
 import com.abhijith.videoaspectration.helper.three_to_two
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import jp.wasabeef.glide.transformations.CropTransformation
 import java.io.File
 import java.io.FileOutputStream
 
@@ -33,19 +35,19 @@ class ImageCroppingActivity : AppCompatActivity() {
 
         binding.btnRatioThreeToTwo.setOnClickListener {
             Glide.with(this).load(Uri.fromFile(File(myPath)))
-                .apply(RequestOptions().override(three_to_two.width, three_to_two.height))
+                .transform(CropTransformation(three_to_two.width, three_to_two.height))
                 .into(binding.ivImagePreview)
         }
 
         binding.btnRatioFourToFive.setOnClickListener {
             Glide.with(this).load(Uri.fromFile(File(myPath)))
-                .apply(RequestOptions().override(four_to_five.width, four_to_five.height))
+                .transform(CropTransformation(four_to_five.width, four_to_five.height))
                 .into(binding.ivImagePreview)
         }
 
         binding.btnRatioOneToOne.setOnClickListener {
             Glide.with(this).load(Uri.fromFile(File(myPath)))
-                .apply(RequestOptions().override(one_to_one.width, one_to_one.height))
+                .transform(CropTransformation(one_to_one.width, one_to_one.height))
                 .into(binding.ivImagePreview)
         }
 
@@ -59,8 +61,14 @@ class ImageCroppingActivity : AppCompatActivity() {
             val outFile = File(dir, fileName)
             outStream = FileOutputStream(outFile)
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
+
+
+            startActivity(Intent(this@ImageCroppingActivity,ImageViewActivity::class.java).apply {
+                putExtra(ImagePath,outFile.absolutePath)
+            })
             outStream.flush()
             outStream.close()
+            finish()
         }
     }
 

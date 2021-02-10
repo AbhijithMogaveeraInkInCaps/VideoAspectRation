@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VideoAspectRation">
-        <activity android:name=".ImageCroppingActivity"></activity>
+        <activity android:name=".ImageViewActivity"></activity>
+        <activity android:name=".ImageCroppingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
