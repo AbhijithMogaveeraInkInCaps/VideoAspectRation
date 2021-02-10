@@ -97,6 +97,8 @@ class ImageCaptureActivity : AppCompatActivity() {
         val cameraSelector: CameraSelector = CameraSelector.Builder()
             .requireLensFacing(CameraSelector.LENS_FACING_BACK)
             .build()
+        previewView.layoutParams.height = currentRation.height
+
         cameraProvider.unbindAll()
         camera = cameraProvider.bindToLifecycle(
             this@ImageCaptureActivity,
