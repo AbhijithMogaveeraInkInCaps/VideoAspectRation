@@ -5,17 +5,14 @@ import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.AnyRes
 import androidx.appcompat.app.AppCompatActivity
 import com.daasuu.mp4compose.FillMode
-import com.daasuu.mp4compose.Rotation
 import com.daasuu.mp4compose.composer.Mp4Composer
 import com.daasuu.mp4compose.filter.GlFilterGroup
 import com.daasuu.mp4compose.filter.GlMonochromeFilter
-import com.daasuu.mp4compose.filter.GlVignetteFilter
 import java.io.File
 
 class FilterActivity: AppCompatActivity() {
@@ -26,7 +23,8 @@ class FilterActivity: AppCompatActivity() {
 
         val f = File(intent.getStringExtra(video_path)!!)
         Toast.makeText(this, f.absolutePath, Toast.LENGTH_SHORT).show()
-        findViewById<MySimpleExoPlayer>(R.id.mySimpleExoPlayer).apply {
+        val exoPlayer = findViewById<MySimpleExoPlayer>(R.id.mySimpleExoPlayer)
+        exoPlayer.apply {
             play(Uri.fromFile(f))
         }
 
@@ -52,6 +50,8 @@ class FilterActivity: AppCompatActivity() {
                         override fun onCompleted() {
                             runOnUiThread {
                                 Toast.makeText(this@FilterActivity, "End", Toast.LENGTH_SHORT).show()
+                                exoPlayer.freeMemory()
+                                exoPlayer.play(Uri.fromFile(file))
                             }
                         }
 
