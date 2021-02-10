@@ -8,8 +8,7 @@ import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.abhijith.videoaspectration.databinding.ActivityImageCaptureBinding
-import com.abhijith.videoaspectration.helper.ShortenMultiplePermissionListener
-import com.abhijith.videoaspectration.helper.makeToast
+import com.abhijith.videoaspectration.helper.*
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import java.io.File
@@ -22,7 +21,6 @@ class ImageCaptureActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         ActivityImageCaptureBinding.inflate(layoutInflater).apply {
             setContentView(root)
             requestRuntimePermission()
@@ -98,7 +96,6 @@ class ImageCaptureActivity : AppCompatActivity() {
             .requireLensFacing(CameraSelector.LENS_FACING_BACK)
             .build()
         previewView.layoutParams.height = currentRation.height
-
         cameraProvider.unbindAll()
         camera = cameraProvider.bindToLifecycle(
             this@ImageCaptureActivity,
@@ -146,12 +143,6 @@ class ImageCaptureActivity : AppCompatActivity() {
     private fun ActivityImageCaptureBinding.onPermissionDenied() {
         makeToast(getString(R.string.permission_denied))
         finish()
-    }
-
-    companion object {
-        val one_to_one = Size(1080, 1080)
-        val three_to_two = Size(1125, 750)
-        val four_to_five = Size(1080, 1350)
     }
 }
 
