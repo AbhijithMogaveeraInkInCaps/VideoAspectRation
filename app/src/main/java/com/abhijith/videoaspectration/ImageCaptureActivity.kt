@@ -19,7 +19,7 @@ class ImageCaptureActivity : AppCompatActivity() {
 
     private lateinit var camera: Camera
     private lateinit var imageCapture: ImageCapture
-    private var currentRation = four_to_five
+//    private var currentRation = one_to_one
     private val capturedImageFile:File by lazy{
         val f = File(Environment.getExternalStorageDirectory(), folder_main)
         if (!f.exists()) {
@@ -39,24 +39,24 @@ class ImageCaptureActivity : AppCompatActivity() {
             }
 
             btnRatioOneToOne.setOnClickListener {
-                if (currentRation != one_to_one) {
-                    currentRation = one_to_one
-                    setUpCamera()
-                }
+//                if (currentRation != one_to_one) {
+//                    currentRation = one_to_one
+//                    setUpCamera()
+//                }
             }
 
             btnRatioThreeToTwo.setOnClickListener {
-                if (currentRation != three_to_two) {
-                    currentRation = three_to_two
-                    setUpCamera()
-                }
+//                if (currentRation != three_to_two) {
+//                    currentRation = three_to_two
+//                    setUpCamera()
+//                }
             }
 
             btnRatioFourToFive.setOnClickListener {
-                if (currentRation != four_to_five) {
-                    currentRation = four_to_five
-                    setUpCamera()
-                }
+//                if (currentRation != four_to_five) {
+//                    currentRation = four_to_five
+//                    setUpCamera()
+//                }
             }
         }
     }
@@ -98,18 +98,18 @@ class ImageCaptureActivity : AppCompatActivity() {
 
         val preview: Preview = Preview
             .Builder()
-            .setTargetResolution(currentRation)
+//            .setTargetResolution(currentRation)
             .build()
 
         imageCapture = ImageCapture
             .Builder()
-            .setTargetResolution(currentRation)
+//            .setTargetResolution(currentRation)
             .build()
 
         val cameraSelector: CameraSelector = CameraSelector.Builder()
             .requireLensFacing(CameraSelector.LENS_FACING_BACK)
             .build()
-        previewView.layoutParams.height = currentRation.height
+//        previewView.layoutParams.height = currentRation.height
         cameraProvider.unbindAll()
         camera = cameraProvider.bindToLifecycle(
             this@ImageCaptureActivity,
