@@ -35,6 +35,7 @@ class ImageCroppingActivity : AppCompatActivity() {
         binding.cid.visibility = View.VISIBLE
         binding.cid.configureOverlay().apply {
             aspectRatio = AspectRatio(one_to_one.height, one_to_one.width)
+
 //            minHeight= one_to_one.height
 //            minWidth= one_to_one.width
             isDynamicCrop = false
@@ -43,19 +44,21 @@ class ImageCroppingActivity : AppCompatActivity() {
         binding.cid.setImageUri(uri)
         binding.btnRatioThreeToTwo.setOnClickListener {
             binding.cid.configureOverlay().apply {
-                aspectRatio = AspectRatio(three_to_two.height, three_to_two.width)
-//                minHeight= three_to_two.height
-//                minWidth= three_to_two.width
+                aspectRatio = AspectRatio(3,2)
+//                minWidth = three_to_two.width
+//                minHeight = three_to_two.height
                 isDynamicCrop = false
                 apply()
             }
+//            binding.cid.configureImage().maxScale = 0.5f
+//            binding.cid.configureImage().minScale = 0.5f
         }
 
         binding.btnRatioFourToFive.setOnClickListener {
             binding.cid.configureOverlay().apply {
-                aspectRatio = AspectRatio(four_to_five.height, four_to_five.width)
-//                minHeight= four_to_five.height
-//                minWidth= four_to_five.width
+                aspectRatio = AspectRatio(5, 4)
+//                minWidth = four_to_five.width
+//                minHeight = four_to_five.height
                 isDynamicCrop = false
                 apply()
             }
@@ -63,7 +66,7 @@ class ImageCroppingActivity : AppCompatActivity() {
 
         binding.btnRatioOneToOne.setOnClickListener {
             binding.cid.configureOverlay().apply {
-                aspectRatio = AspectRatio(one_to_one.height, one_to_one.width)
+                aspectRatio = AspectRatio(1,1)
 //                minHeight= one_to_one.height
 //                minWidth= one_to_one.width
                 isDynamicCrop = false
