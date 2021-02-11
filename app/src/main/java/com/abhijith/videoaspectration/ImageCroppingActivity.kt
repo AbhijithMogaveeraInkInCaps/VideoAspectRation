@@ -34,7 +34,7 @@ class ImageCroppingActivity : AppCompatActivity() {
         setContentView(binding.root)
         val bitMap = BitmapFactory.decodeFile(file.absolutePath)
         binding.cid.visibility = View.VISIBLE
-        binding.cid.setHandleSizeInDp(2)
+        binding.cid.setHandleSizeInDp(3)
         binding.cid.setImageBitmap(bitMap)
         binding.cid.setCropMode(com.isseiaoki.simplecropview.CropImageView.CropMode.SQUARE)
         binding.btnRatioThreeToTwo.setOnClickListener {
