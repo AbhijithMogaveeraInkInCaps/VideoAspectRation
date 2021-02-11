@@ -35,27 +35,17 @@ class ImageCroppingActivity : AppCompatActivity() {
         binding.cid.visibility = View.VISIBLE
         binding.cid.configureOverlay().apply {
             aspectRatio = AspectRatio(one_to_one.height, one_to_one.width)
+//            minHeight= one_to_one.height
+//            minWidth= one_to_one.width
             isDynamicCrop = false
             apply()
         }
         binding.cid.setImageUri(uri)
-//            binding.cid.crop(
-//                CropIwaSaveConfig.Builder(Uri.fromFile(file))
-//                    .setCompressFormat(Bitmap.CompressFormat.JPEG)
-//                    .setSize(
-//                        one_to_one.width,
-//                        one_to_one.height
-//                    ) //Optional. If not specified, SRC dimensions will be used
-//                    .setQuality(100) //Hint for lossy compression formats
-//                    .build()
-//            )
-
-//        binding.cid.setHandleSizeInDp(3)
-//        binding.cid.setImageBitmap(bitMap)
-//        binding.cid.setCropMode(com.isseiaoki.simplecropview.CropImageView.CropMode.SQUARE)
         binding.btnRatioThreeToTwo.setOnClickListener {
             binding.cid.configureOverlay().apply {
                 aspectRatio = AspectRatio(three_to_two.height, three_to_two.width)
+//                minHeight= three_to_two.height
+//                minWidth= three_to_two.width
                 isDynamicCrop = false
                 apply()
             }
@@ -64,20 +54,21 @@ class ImageCroppingActivity : AppCompatActivity() {
         binding.btnRatioFourToFive.setOnClickListener {
             binding.cid.configureOverlay().apply {
                 aspectRatio = AspectRatio(four_to_five.height, four_to_five.width)
+//                minHeight= four_to_five.height
+//                minWidth= four_to_five.width
                 isDynamicCrop = false
                 apply()
             }
-//            binding.cid.
-//            binding.cid.setCustomRatio(four_to_five.width, four_to_five.height)
         }
 
         binding.btnRatioOneToOne.setOnClickListener {
             binding.cid.configureOverlay().apply {
                 aspectRatio = AspectRatio(one_to_one.height, one_to_one.width)
+//                minHeight= one_to_one.height
+//                minWidth= one_to_one.width
                 isDynamicCrop = false
                 apply()
             }
-//            binding.cid.setCustomRatio(one_to_one.width, one_to_one.height)
         }
 
         binding.btnSave.setOnClickListener {
@@ -104,28 +95,6 @@ class ImageCroppingActivity : AppCompatActivity() {
                         })
                 }
             }
-
-//            binding.cid.crop(uri)
-//                .execute(object : CropCallback {
-//                    override fun onSuccess(cropped: Bitmap) {
-//                        var outStream: FileOutputStream? = null
-//                        val sdCard: File = Environment.getExternalStorageDirectory()
-//                        val dir = File(sdCard.absolutePath + "/NewAbhi")
-//                        dir.mkdirs()
-//                        val fileName = String.format("%d.jpg", System.currentTimeMillis())
-//                        val outFile = File(dir, fileName)
-//                        outStream = FileOutputStream(outFile)
-//                        cropped.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
-//                        startActivity(Intent(this@ImageCroppingActivity, ImageViewActivity::class.java).apply {
-//                            putExtra(ImagePath, outFile.absolutePath)
-//                        })
-//                        outStream.flush()
-//                        outStream.close()
-//                        finish()
-//                    }
-//
-//                    override fun onError(e: Throwable) {}
-//                })
         }
     }
 

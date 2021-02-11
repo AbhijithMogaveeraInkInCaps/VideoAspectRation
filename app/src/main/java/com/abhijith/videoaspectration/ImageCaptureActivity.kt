@@ -103,7 +103,7 @@ class ImageCaptureActivity : AppCompatActivity() {
 
         imageCapture = ImageCapture
             .Builder()
-            .setTargetResolution(four_to_five)
+            .setTargetResolution(Size(four_to_five.width*2,four_to_five.height*2))
             .build()
 
         val cameraSelector: CameraSelector = CameraSelector.Builder()

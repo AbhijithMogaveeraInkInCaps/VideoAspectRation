@@ -22,7 +22,7 @@ const val video_path="VideoPath"
 const val folder_main = "Filtered Videos"
 
 class VideoCaptureActivity : AppCompatActivity() {
-    private val binding: ActivityVideoCaptureBinding by lazy {
+    private val binding by lazy {
         ActivityVideoCaptureBinding.inflate(layoutInflater)
     }
 
