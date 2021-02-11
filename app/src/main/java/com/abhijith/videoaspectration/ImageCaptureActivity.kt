@@ -98,18 +98,18 @@ class ImageCaptureActivity : AppCompatActivity() {
 
         val preview: Preview = Preview
             .Builder()
-//            .setTargetResolution(currentRation)
+            .setTargetResolution(four_to_five)
             .build()
 
         imageCapture = ImageCapture
             .Builder()
-//            .setTargetResolution(currentRation)
+            .setTargetResolution(four_to_five)
             .build()
 
         val cameraSelector: CameraSelector = CameraSelector.Builder()
             .requireLensFacing(CameraSelector.LENS_FACING_BACK)
             .build()
-//        previewView.layoutParams.height = currentRation.height
+        previewView.layoutParams.height = four_to_five.height
         cameraProvider.unbindAll()
         camera = cameraProvider.bindToLifecycle(
             this@ImageCaptureActivity,
