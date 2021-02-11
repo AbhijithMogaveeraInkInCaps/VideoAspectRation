@@ -33,64 +33,20 @@ class ImageCroppingActivity : AppCompatActivity() {
         binding = ActivityImageCropingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val bitMap = BitmapFactory.decodeFile(file.absolutePath)
-//        binding.ivImagePreview.setImageBitmap(bitMap)
-//        binding.ivImagePreview.visibility = View.GONE
         binding.cid.visibility = View.VISIBLE
-//        binding.cid.(true);
-//        binding.cid.setFixedAspectRatio(true);
+        binding.cid.setHandleSizeInDp(2)
         binding.cid.setImageBitmap(bitMap)
         binding.cid.setCropMode(com.isseiaoki.simplecropview.CropImageView.CropMode.SQUARE)
-//        binding.cid.actualCropRect
-//        binding.cid.setAspectRatio(one_to_one.width, one_to_one.height)
-
-
-//        Glide.with(this).load(uri)
-//            .diskCacheStrategy(DiskCacheStrategy.NONE)
-//            .skipMemoryCache(true)
-//            .apply(RequestOptions().override(one_to_one.width, one_to_one.height))
-//            .into(binding.ivImagePreview)
-
         binding.btnRatioThreeToTwo.setOnClickListener {
-//            binding.cid.setCropMode(com.isseiaoki.simplecropview.CropImageView.CropMode.RATIO_3_4)
             binding.cid.setCustomRatio(three_to_two.width, three_to_two.height)
-//            binding.cid.setAspectRatio(three_to_two.width, three_to_two.height)
-//            Glide.with(this).load(uri)
-//                .diskCacheStrategy(DiskCacheStrategy.NONE)
-//                .skipMemoryCache(true)
-//                .transform(CropTransformation(three_to_two.width, three_to_two.height))
-//                .into(binding.ivImagePreview)
-//            Thread.sleep(1000)
-//            binding.cid.setImageBitmap((binding.ivImagePreview.drawable as BitmapDrawable?)!!.bitmap)
-
         }
 
         binding.btnRatioFourToFive.setOnClickListener {
             binding.cid.setCustomRatio(four_to_five.width, four_to_five.height)
-
-//            binding.cid.setAspectRatio(four_to_five.width, four_to_five.height)
-
-//            Glide.with(this).load(uri)
-//                .diskCacheStrategy(DiskCacheStrategy.NONE)
-//                .skipMemoryCache(true)
-//                .transform(CropTransformation(four_to_five.width, four_to_five.height))
-//                .into(binding.ivImagePreview)
-//            Thread.sleep(1000)
-//            binding.cid.setImageBitmap((binding.ivImagePreview.drawable as BitmapDrawable?)!!.bitmap)
-
         }
 
         binding.btnRatioOneToOne.setOnClickListener {
             binding.cid.setCustomRatio(one_to_one.width, one_to_one.height)
-
-//            binding.cid.setAspectRatio(one_to_one.width, one_to_one.height)
-//            Glide.with(this).load(uri)
-//                .diskCacheStrategy(DiskCacheStrategy.NONE)
-//                .skipMemoryCache(true)
-//                .transform(CropTransformation(one_to_one.width, one_to_one.height))
-//                .into(binding.ivImagePreview)
-//            Thread.sleep(1000)
-//            binding.cid.setImageBitmap((binding.ivImagePreview.drawable as BitmapDrawable?)!!.bitmap)
-
         }
 
         binding.btnSave.setOnClickListener {
@@ -112,35 +68,10 @@ class ImageCroppingActivity : AppCompatActivity() {
                         outStream.flush()
                         outStream.close()
                         finish()
-//                        binding.cid.save(cropped)
-//                            .execute(uri, object :SaveCallback{
-//                                override fun onError(e: Throwable?) {
-//
-//                                }
-//
-//                                override fun onSuccess(uri: Uri?) {
-//
-//                                }
-//                            })
                     }
 
                     override fun onError(e: Throwable) {}
                 })
-            //////////////////////////////////////////
-//            var outStream: FileOutputStream? = null
-//            val sdCard: File = Environment.getExternalStorageDirectory()
-//            val dir = File(sdCard.absolutePath + "/NewAbhi")
-//            dir.mkdirs()
-//            val fileName = String.format("%d.jpg", System.currentTimeMillis())
-//            val outFile = File(dir, fileName)
-//            outStream = FileOutputStream(outFile)
-//            binding.cid.croppedImage.compress(Bitmap.CompressFormat.JPEG, 100, outStream)
-//            startActivity(Intent(this@ImageCroppingActivity, ImageViewActivity::class.java).apply {
-//                putExtra(ImagePath, outFile.absolutePath)
-//            })
-//            outStream.flush()
-//            outStream.close()
-//            finish()
         }
     }
 
