@@ -19,7 +19,6 @@ class ImageCaptureActivity : AppCompatActivity() {
 
     private lateinit var camera: Camera
     private lateinit var imageCapture: ImageCapture
-//    private var currentRation = one_to_one
     private val capturedImageFile:File by lazy{
         val f = File(Environment.getExternalStorageDirectory(), folder_main)
         if (!f.exists()) {
@@ -33,30 +32,8 @@ class ImageCaptureActivity : AppCompatActivity() {
         ActivityImageCaptureBinding.inflate(layoutInflater).apply {
             setContentView(root)
             requestRuntimePermission()
-
             btnCaptureImage.setOnClickListener {
                 onCaptureImage()
-            }
-
-            btnRatioOneToOne.setOnClickListener {
-//                if (currentRation != one_to_one) {
-//                    currentRation = one_to_one
-//                    setUpCamera()
-//                }
-            }
-
-            btnRatioThreeToTwo.setOnClickListener {
-//                if (currentRation != three_to_two) {
-//                    currentRation = three_to_two
-//                    setUpCamera()
-//                }
-            }
-
-            btnRatioFourToFive.setOnClickListener {
-//                if (currentRation != four_to_five) {
-//                    currentRation = four_to_five
-//                    setUpCamera()
-//                }
             }
         }
     }
@@ -98,18 +75,18 @@ class ImageCaptureActivity : AppCompatActivity() {
 
         val preview: Preview = Preview
             .Builder()
-            .setTargetResolution(four_to_five)
+//            .setTargetResolution(four_to_five)
             .build()
 
         imageCapture = ImageCapture
             .Builder()
-            .setTargetResolution(Size(four_to_five.width*2,four_to_five.height*2))
+//            .setTargetResolution(Size(four_to_five.width*2,four_to_five.height*2))
             .build()
 
         val cameraSelector: CameraSelector = CameraSelector.Builder()
             .requireLensFacing(CameraSelector.LENS_FACING_BACK)
             .build()
-        previewView.layoutParams.height = four_to_five.height
+//        previewView.layoutParams.height = four_to_five.height
         cameraProvider.unbindAll()
         camera = cameraProvider.bindToLifecycle(
             this@ImageCaptureActivity,

@@ -168,3 +168,14 @@ class VideoCaptureActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
+
+/*
+*
+* app:ci_min_crop_width="40dp"
+app:ci_min_crop_height="40dp"
+
+cropView.configureOverlay()
+  .setMinWidth(dps)
+  .setMinHeight(dps)
+  .apply();
+* */
