@@ -25,7 +25,7 @@ class ImageCaptureActivity : AppCompatActivity() {
         if (!f.exists()) {
             f.mkdirs()
         }
-        val fileName = String.format("%d.jpg", System.currentTimeMillis())
+        val fileName = String.format("%d.jpeg", System.currentTimeMillis())
         File(f.absolutePath, fileName)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
