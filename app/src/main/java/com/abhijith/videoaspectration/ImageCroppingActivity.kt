@@ -9,9 +9,7 @@ import android.os.Environment
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.abhijith.videoaspectration.databinding.ActivityImageCropingBinding
-import com.abhijith.videoaspectration.helper.four_to_five
 import com.abhijith.videoaspectration.helper.one_to_one
-import com.abhijith.videoaspectration.helper.three_to_two
 import com.steelkiwi.cropiwa.AspectRatio
 import com.steelkiwi.cropiwa.config.CropIwaSaveConfig
 import java.io.File
@@ -35,30 +33,21 @@ class ImageCroppingActivity : AppCompatActivity() {
         binding.cid.visibility = View.VISIBLE
         binding.cid.configureOverlay().apply {
             aspectRatio = AspectRatio(one_to_one.height, one_to_one.width)
-
-//            minHeight= one_to_one.height
-//            minWidth= one_to_one.width
             isDynamicCrop = false
             apply()
         }
         binding.cid.setImageUri(uri)
         binding.btnRatioThreeToTwo.setOnClickListener {
             binding.cid.configureOverlay().apply {
-                aspectRatio = AspectRatio(3,2)
-//                minWidth = three_to_two.width
-//                minHeight = three_to_two.height
+                aspectRatio = AspectRatio(3, 2)
                 isDynamicCrop = false
                 apply()
             }
-//            binding.cid.configureImage().maxScale = 0.5f
-//            binding.cid.configureImage().minScale = 0.5f
         }
 
         binding.btnRatioFourToFive.setOnClickListener {
             binding.cid.configureOverlay().apply {
                 aspectRatio = AspectRatio(5, 4)
-//                minWidth = four_to_five.width
-//                minHeight = four_to_five.height
                 isDynamicCrop = false
                 apply()
             }
@@ -66,9 +55,7 @@ class ImageCroppingActivity : AppCompatActivity() {
 
         binding.btnRatioOneToOne.setOnClickListener {
             binding.cid.configureOverlay().apply {
-                aspectRatio = AspectRatio(1,1)
-//                minHeight= one_to_one.height
-//                minWidth= one_to_one.width
+                aspectRatio = AspectRatio(1, 1)
                 isDynamicCrop = false
                 apply()
             }
@@ -84,7 +71,7 @@ class ImageCroppingActivity : AppCompatActivity() {
             binding.cid.crop(
                 CropIwaSaveConfig.Builder(Uri.fromFile(outFile))
                     .setCompressFormat(Bitmap.CompressFormat.JPEG)
-                    .setQuality(100) //Hint for lossy compression formats
+                    .setQuality(100)
                     .build()
             )
             binding.cid.setCropSaveCompleteListener {
@@ -102,6 +89,6 @@ class ImageCroppingActivity : AppCompatActivity() {
     }
 
     companion object {
-        val ImagePath: String = "ImagePath"
+        const val ImagePath: String = "ImagePath"
     }
 }
