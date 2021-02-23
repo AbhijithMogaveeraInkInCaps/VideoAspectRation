@@ -41,7 +41,7 @@ dependencies {
     implementation "androidx.camera:camera-view:1.0.0-alpha21"
 
     //video filter lib
-    implementation 'com.github.MasayukiSuda:Mp4Composer-android:v0.4.1'
+//    implementation 'com.github.MasayukiSuda:Mp4Composer-android:v0.4.1'
 
     //video player lib
     implementation 'com.google.android.exoplayer:exoplayer:2.10.8'
