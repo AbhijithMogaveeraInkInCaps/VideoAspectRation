@@ -13,6 +13,9 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        ndk {
+            abiFilters 'armeabi-v7a', 'x86', 'x86_64', 'arm64-v8a'
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -20,6 +23,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path file('src/main/jni/Android.mk')
         }
     }
     compileOptions {
@@ -31,6 +39,14 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+    android {
+        ndkVersion "23.0.7123448" // e.g.,  ndkVersion '21.3.6528147'
+    }
+    externalNativeBuild {
+        cmake {
+            version "3.18.1"
+        }
     }
 }
 
@@ -51,6 +67,7 @@ dependencies {
 
     //Image cropping lib
     implementation 'com.steelkiwi:cropiwa:1.0.3'
+    implementation 'com.github.zomato:androidphotofilters:1.0.2'
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

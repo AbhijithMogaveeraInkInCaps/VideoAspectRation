@@ -12,6 +12,7 @@ import com.abhijith.videoaspectration.databinding.FilterActivityBinding
 import com.abhijith.filters.FillMode
 import com.abhijith.filters.composer.Mp4Composer
 import com.abhijith.filters.filter.*
+import com.zomato.photofilters.imageprocessors.Filter
 import java.io.File
 
 class FilterActivity : AppCompatActivity() {
@@ -103,7 +104,6 @@ class FilterActivity : AppCompatActivity() {
                     }
 
                     override fun onCanceled() {
-
                     }
 
                     override fun onFailed(exception: Exception?) {
