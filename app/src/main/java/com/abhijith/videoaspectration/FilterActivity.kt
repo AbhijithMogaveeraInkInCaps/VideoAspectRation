@@ -9,10 +9,9 @@ import android.widget.Toast
 import androidx.annotation.AnyRes
 import androidx.appcompat.app.AppCompatActivity
 import com.abhijith.videoaspectration.databinding.FilterActivityBinding
-import com.abhijith.filters.FillMode
-import com.abhijith.filters.composer.Mp4Composer
-import com.abhijith.filters.filter.*
-import com.zomato.photofilters.imageprocessors.Filter
+import com.abhijith.videofilters.FillMode
+import com.abhijith.videofilters.composer.Mp4Composer
+import com.abhijith.videofilters.filter.*
 import java.io.File
 
 class FilterActivity : AppCompatActivity() {
