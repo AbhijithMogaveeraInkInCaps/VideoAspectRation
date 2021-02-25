@@ -3,8 +3,10 @@ package com.abhijith.videoaspectration
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.opengl.GLSurfaceView
 import android.os.Bundle
 import android.os.Environment
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.Camera
@@ -15,9 +17,13 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.abhijith.videoaspectration.databinding.ActivityVideoCaptureBinding
 import com.abhijith.videoaspectration.helper.*
+import com.daasuu.gpuv.camerarecorder.GPUCameraRecorderBuilder
+import com.daasuu.gpuv.camerarecorder.LensFacing
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import java.io.File
+
+
 const val video_path="VideoPath"
 const val folder_main = "Filtered Videos"
 
@@ -42,7 +48,6 @@ class VideoCaptureActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         var isRecording = false
-//        Toast.makeText(this, f.absolutePath, Toast.LENGTH_SHORT).show()
 
         binding.buttonRecordVideo.setOnClickListener {
             if (!isRecording) {
@@ -143,8 +148,8 @@ class VideoCaptureActivity : AppCompatActivity() {
     private val videoSavedCallback = object : VideoCapture.OnVideoSavedCallback {
         override fun onVideoSaved(outputFileResults: VideoCapture.OutputFileResults) {
             showResultMessage(getString(R.string.video_record_success))
-            Intent(this@VideoCaptureActivity,FilterActivity::class.java).apply {
-                putExtra(video_path,recordedVideoFile.absolutePath)
+            Intent(this@VideoCaptureActivity, FilterActivity::class.java).apply {
+                putExtra(video_path, recordedVideoFile.absolutePath)
                 startActivity(this)
                 finish()
             }

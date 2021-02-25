@@ -32,7 +32,7 @@ public final class ImageProcessor {
 
         try {
             outputImage.setPixels(pixels, 0, width, 0, 0, width, height);
-        } catch (IllegalStateException ise) {
+        } catch (IllegalStateException ignored) {
         }
         return outputImage;
     }

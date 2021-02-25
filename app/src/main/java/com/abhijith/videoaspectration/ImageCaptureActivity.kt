@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.util.Size
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
@@ -107,6 +108,7 @@ class ImageCaptureActivity : AppCompatActivity() {
                 makeToast(getString(R.string.image_capture_success))
                 startActivity(Intent(this@ImageCaptureActivity,ImageCroppingActivity::class.java).apply {
                     putExtra(ImageCroppingActivity.ImagePath,capturedImageFile.absolutePath)
+                    Log.e("EV",capturedImageFile.absolutePath)
                     makeToast(capturedImageFile.absolutePath)
                 })
 

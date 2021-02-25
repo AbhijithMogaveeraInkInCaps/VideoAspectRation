@@ -24,35 +24,35 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
             <Button
-                android:id="@+id/btn1"
+                android:id="@+id/btnBrightnessFilter"
                 android:layout_width="match_parent"
-                android:text="filter one"
+                android:text="BRIGHTNESS_FILTER"
                 android:layout_height="wrap_content"/>
             <Button
-                android:id="@+id/btn2"
+                android:id="@+id/btnCotrastFilter"
                 android:layout_width="match_parent"
-                android:text="filter two"
+                android:text="CONTRAST_FILTER"
                 android:layout_height="wrap_content"/>
             <Button
-                android:id="@+id/btn3"
+                android:id="@+id/btnSaturation"
                 android:layout_width="match_parent"
-                android:text="filter three"
+                android:text="SATURATION_FILTER"
                 android:layout_height="wrap_content"/>
             <Button
-                android:id="@+id/btn4"
+                android:id="@+id/btnVignette"
                 android:layout_width="match_parent"
-                android:text="filter four"
+                android:text="VIGNETTE_FILTER"
                 android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/btn5"
-                android:layout_width="match_parent"
-                android:text="filter five"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/btn6"
-                android:layout_width="match_parent"
-                android:text="filter six"
-                android:layout_height="wrap_content"/>
+<!--            <Button-->
+<!--                android:id="@+id/btn5"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:text="filter five"-->
+<!--                android:layout_height="wrap_content"/>-->
+<!--            <Button-->
+<!--                android:id="@+id/btn6"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:text="filter six"-->
+<!--                android:layout_height="wrap_content"/>-->
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

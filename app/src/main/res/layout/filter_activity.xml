@@ -43,22 +43,22 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/btnMonochrome"
+                android:id="@+id/btnBrightnessFilter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="Monochrome"/>
+                android:text="BRIGHTNESS_FILTER"/>
 
             <Button
-                android:id="@+id/btnGlayScale"
+                android:id="@+id/btnCotrastFilter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="Glay Scale"/>
+                android:text="CONTRAST_FILTER"/>
 
             <Button
                 android:id="@+id/btnSaturation"
@@ -67,7 +67,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="Saturation"/>
+                android:text="SATURATION_FILTER"/>
 
             <Button
                 android:id="@+id/btnVignette"
@@ -76,24 +76,24 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="Vignette"/>
+                android:text="VIGNETTE_FILTER"/>
 
-            <Button
-                android:id="@+id/btnHaze"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:text="Haze"/>
-            <Button
-                android:id="@+id/btn_solarize_filter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:text="SolarizeFilter"/>
+<!--            <Button-->
+<!--                android:id="@+id/btnHaze"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:text="Haze"/>-->
+<!--            <Button-->
+<!--                android:id="@+id/btn_solarize_filter"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:text="SolarizeFilter"/>-->
         </LinearLayout>
     </ScrollView>
 

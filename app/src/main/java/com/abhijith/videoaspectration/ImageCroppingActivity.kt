@@ -20,9 +20,11 @@ class ImageCroppingActivity : AppCompatActivity() {
     val file by lazy {
         File(intent.getStringExtra(ImagePath)!!)
     }
+
     val uri: Uri by lazy {
         Uri.fromFile(file)
     }
+
     lateinit var binding: ActivityImageCropingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,13 +32,17 @@ class ImageCroppingActivity : AppCompatActivity() {
         binding = ActivityImageCropingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val bitMap = BitmapFactory.decodeFile(file.absolutePath)
+
         binding.cid.visibility = View.VISIBLE
+
         binding.cid.configureOverlay().apply {
             aspectRatio = AspectRatio(one_to_one.height, one_to_one.width)
             isDynamicCrop = false
             apply()
         }
+
         binding.cid.setImageUri(uri)
+
         binding.btnRatioThreeToTwo.setOnClickListener {
             binding.cid.configureOverlay().apply {
                 aspectRatio = AspectRatio(3, 2)

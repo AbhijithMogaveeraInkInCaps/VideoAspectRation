@@ -137,10 +137,10 @@ class Mp4ComposerEngine {
                 final MediaFormat inputMediaFormat = mediaExtractor.getTrackFormat(audioTrackIndex);
                 final MediaFormat outputMediaFormat = createAudioOutputFormat(inputMediaFormat);
 
-                if( timeScale >= 0.99 && timeScale <= 1.01  && outputMediaFormat.equals(inputMediaFormat)) {
+                if (timeScale >= 0.99 && timeScale <= 1.01 && outputMediaFormat.equals(inputMediaFormat)) {
                     audioComposer = new AudioComposer(mediaExtractor, audioTrackIndex, muxRender, trimStartMs, trimEndMs, logger);
                 } else {
-                    audioComposer = new RemixAudioComposer(mediaExtractor, audioTrackIndex, outputMediaFormat, muxRender, timeScale, isPitchChanged , trimStartMs, trimEndMs);
+                    audioComposer = new RemixAudioComposer(mediaExtractor, audioTrackIndex, outputMediaFormat, muxRender, timeScale, isPitchChanged, trimStartMs, trimEndMs);
                 }
 
                 audioComposer.setup();
