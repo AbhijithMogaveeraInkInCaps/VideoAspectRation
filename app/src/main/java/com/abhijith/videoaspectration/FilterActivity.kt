@@ -34,7 +34,7 @@ class FilterActivity : AppCompatActivity() {
             play(Uri.fromFile(srcFile))
         }
 
-        binding.btnBrightnessFilter.setOnClickListener {
+        binding.btnColorOne.setOnClickListener {
             applyFilter(srcFile, destFile,GlFilterGroup(GlRGBFilter().apply {
                 this.setRed(convertScale(154))
                 this.setGreen(convertScale(131))
@@ -43,7 +43,7 @@ class FilterActivity : AppCompatActivity() {
 //            applyFilter(srcFile, destFile, FilterList(this).getFilter(FilterEnum.TONE_CURVE_FILTER).videoFilter, binding.mySimpleExoPlayer)
         }
 
-        binding.btnCotrastFilter.setOnClickListener {
+        binding.btnColorTwo.setOnClickListener {
 //            applyFilter(srcFile, destFile, FilterList(this).getFilter(FilterEnum.CONTRAST_FILTER).videoFilter, binding.mySimpleExoPlayer)
             applyFilter(srcFile, destFile,GlFilterGroup(GlRGBFilter().apply {
                 this.setRed(convertScale(114))
@@ -53,14 +53,14 @@ class FilterActivity : AppCompatActivity() {
 
         }
 
-//        binding.btnHaze.setOnClickListener {
-//            val glFilterGroup = GlFilterGroup(GlHazeFilter().apply {
-//                //customize filter here
-//            })
-//            applyFilter(srcFile, destFile, glFilterGroup, binding.mySimpleExoPlayer)
-//        }
+/*        binding.btnHaze.setOnClickListener {
+            val glFilterGroup = GlFilterGroup(GlHazeFilter().apply {
+                //customize filter here
+            })
+            applyFilter(srcFile, destFile, glFilterGroup, binding.mySimpleExoPlayer)
+        }*/
 
-        binding.btnSaturation.setOnClickListener {
+        binding.btnColorThree.setOnClickListener {
 //            applyFilter(srcFile, destFile, FilterList(this).getFilter(FilterEnum.SATURATION_FILTER).videoFilter, binding.mySimpleExoPlayer)
             applyFilter(srcFile, destFile,GlFilterGroup(GlRGBFilter().apply {
                 this.setRed(convertScale(103))
@@ -69,14 +69,16 @@ class FilterActivity : AppCompatActivity() {
             }), binding.mySimpleExoPlayer)
         }
 
-//        binding.btnSolarizeFilter.setOnClickListener {
-//            val glFilterGroup = GlFilterGroup(GlSolarizeFilter().apply {
-//                //customize filter here
-//            })
-//            applyFilter(srcFile, destFile, glFilterGroup, binding.mySimpleExoPlayer)
-//        }
+/*
+        binding.btnSolarizeFilter.setOnClickListener {
+            val glFilterGroup = GlFilterGroup(GlSolarizeFilter().apply {
+                //customize filter here
+            })
+            applyFilter(srcFile, destFile, glFilterGroup, binding.mySimpleExoPlayer)
+        }
+*/
 
-        binding.btnVignette.setOnClickListener {
+        binding.btnColorFour.setOnClickListener {
             applyFilter(srcFile, destFile,GlFilterGroup(GlRGBFilter().apply {
                 this.setRed(convertScale(55))
                 this.setGreen(convertScale(87))

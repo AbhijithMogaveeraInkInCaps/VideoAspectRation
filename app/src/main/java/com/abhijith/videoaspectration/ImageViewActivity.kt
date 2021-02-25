@@ -34,60 +34,66 @@ class ImageViewActivity : AppCompatActivity() {
         binding.ivImagePreview.setImageURI(Uri.fromFile(file))
 
         val l = 0x00000000
-        binding.btnCotrastFilter.setOnClickListener {
+        binding.btnColorTwo.setOnClickListener {
             binding.ivImagePreview.clearColorFilter()
             binding.ivImagePreview.colorFilter = LightingColorFilter(0x0072618f, 0x00000000)
-//            val outputImage =
-//                FilterList(this).getFilter(FilterEnum.CONTRAST_FILTER).imageFilter.processFilter(
-//                    BitmapFactory.decodeFile(
-//                        file.absolutePath,
-//                        BitmapFactory.Options().apply {
-//                            inMutable = true
-//                        })
-//                )
-//            binding.ivImagePreview.setImageBitmap(outputImage)
+/*            val outputImage =
+                FilterList(this).getFilter(FilterEnum.CONTRAST_FILTER).imageFilter.processFilter(
+                    BitmapFactory.decodeFile(
+                        file.absolutePath,
+                        BitmapFactory.Options().apply {
+                            inMutable = true
+                        })
+                )
+            binding.ivImagePreview.setImageBitmap(outputImage)*/
         }
 
-        binding.btnBrightnessFilter.setOnClickListener {
+        binding.btnColorOne.setOnClickListener {
             binding.ivImagePreview.clearColorFilter()
             binding.ivImagePreview.colorFilter = LightingColorFilter(0xFF968273.toInt(),0x00000000)
-//            val outputImage =
-//                FilterList(this).getFilter(FilterEnum.BRIGHTNESS_FILTER).imageFilter.processFilter(
-//                    BitmapFactory.decodeFile(
-//                        file.absolutePath,
-//                        BitmapFactory.Options().apply {
-//                            inMutable = true
-//                        })
-//                )
-//            binding.ivImagePreview.setImageBitmap(outputImage)
-//            binding.ivImagePreview.colorFilter = LightingColorFilter(l.toInt(), 0x00968372)
+/*
+            val outputImage =
+                FilterList(this).getFilter(FilterEnum.BRIGHTNESS_FILTER).imageFilter.processFilter(
+                    BitmapFactory.decodeFile(
+                        file.absolutePath,
+                        BitmapFactory.Options().apply {
+                            inMutable = true
+                        })
+                )
+            binding.ivImagePreview.setImageBitmap(outputImage)
+            binding.ivImagePreview.colorFilter = LightingColorFilter(l.toInt(), 0x00968372)
+*/
         }
 
-        binding.btnSaturation.setOnClickListener {
+        binding.btnColorThree.setOnClickListener {
             binding.ivImagePreview.clearColorFilter()
             binding.ivImagePreview.colorFilter = LightingColorFilter(0x00678f75, 0x00000000)
-//            val outputImage =
-//                FilterList(this).getFilter(FilterEnum.SATURATION_FILTER).imageFilter.processFilter(
-//                    BitmapFactory.decodeFile(
-//                        file.absolutePath,
-//                        BitmapFactory.Options().apply {
-//                            inMutable = true
-//                        })
-//                )
-//            binding.ivImagePreview.setImageBitmap(outputImage)
+/*
+            val outputImage =
+                FilterList(this).getFilter(FilterEnum.SATURATION_FILTER).imageFilter.processFilter(
+                    BitmapFactory.decodeFile(
+                        file.absolutePath,
+                        BitmapFactory.Options().apply {
+                            inMutable = true
+                        })
+                )
+            binding.ivImagePreview.setImageBitmap(outputImage)
+*/
         }
 
-        binding.btnVignette.setOnClickListener {
+        binding.btnColorFour.setOnClickListener {
             binding.ivImagePreview.clearColorFilter()
             binding.ivImagePreview.colorFilter = LightingColorFilter(0x00375773, 0x00000000)
-//                        val outputImage = FilterList(this).getFilter(FilterEnum.VIGNETTE_FILTER).imageFilter.processFilter(
-//                            BitmapFactory.decodeFile(
-//                                file.absolutePath,
-//                                BitmapFactory.Options().apply {
-//                                    inMutable = true
-//                                })
-//                        )
-//                        binding.ivImagePreview.setImageBitmap(outputImage)
+/*
+                        val outputImage = FilterList(this).getFilter(FilterEnum.VIGNETTE_FILTER).imageFilter.processFilter(
+                            BitmapFactory.decodeFile(
+                                file.absolutePath,
+                                BitmapFactory.Options().apply {
+                                    inMutable = true
+                                })
+                        )
+                        binding.ivImagePreview.setImageBitmap(outputImage)
+*/
         }
     }
 }

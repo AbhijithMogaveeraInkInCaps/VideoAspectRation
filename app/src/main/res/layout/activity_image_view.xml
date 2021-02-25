@@ -24,24 +24,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
             <Button
-                android:id="@+id/btnBrightnessFilter"
+                android:id="@+id/btnColorOne"
                 android:layout_width="match_parent"
-                android:text="BRIGHTNESS_FILTER"
+                android:text="Color 1"
                 android:layout_height="wrap_content"/>
             <Button
-                android:id="@+id/btnCotrastFilter"
+                android:id="@+id/btnColorTwo"
                 android:layout_width="match_parent"
-                android:text="CONTRAST_FILTER"
+                android:text="Color 2"
                 android:layout_height="wrap_content"/>
             <Button
-                android:id="@+id/btnSaturation"
+                android:id="@+id/btnColorThree"
                 android:layout_width="match_parent"
-                android:text="SATURATION_FILTER"
+                android:text="Color 3"
                 android:layout_height="wrap_content"/>
             <Button
-                android:id="@+id/btnVignette"
+                android:id="@+id/btnColorFour"
                 android:layout_width="match_parent"
-                android:text="VIGNETTE_FILTER"
+                android:text="Color 4"
                 android:layout_height="wrap_content"/>
 <!--            <Button-->
 <!--                android:id="@+id/btn5"-->
