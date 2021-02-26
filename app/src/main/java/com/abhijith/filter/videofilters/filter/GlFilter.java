@@ -3,7 +3,7 @@ package com.abhijith.filter.videofilters.filter;
 import android.content.res.Resources;
 import android.opengl.GLES20;
 
-import com.abhijith.filter.videofilters.gl.GlFramebufferObject;
+import com.abhijith.filter.videofilters.egl.GlFramebufferObject;
 import com.abhijith.filter.videofilters.utils.EglUtil;
 
 import java.util.HashMap;

@@ -16,9 +16,9 @@ import com.abhijith.filter.videofilters.FillMode;
 import com.abhijith.filter.videofilters.FillModeCustomItem;
 import com.abhijith.filter.videofilters.Rotation;
 import com.abhijith.filter.videofilters.filter.GlFilter;
-import com.abhijith.filter.videofilters.gl.GlFramebufferObject;
-import com.abhijith.filter.videofilters.gl.GlPreviewFilter;
-import com.abhijith.filter.videofilters.gl.GlSurfaceTexture;
+import com.abhijith.filter.videofilters.egl.GlFramebufferObject;
+import com.abhijith.filter.videofilters.egl.GlPreviewFilter;
+import com.abhijith.filter.videofilters.egl.GlSurfaceTexture;
 import com.abhijith.filter.videofilters.logger.Logger;
 import com.abhijith.filter.videofilters.utils.EglUtil;
 

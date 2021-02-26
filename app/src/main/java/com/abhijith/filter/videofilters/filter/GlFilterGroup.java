@@ -4,7 +4,7 @@ package com.abhijith.filter.videofilters.filter;
 import android.opengl.GLES20;
 import android.util.Pair;
 
-import com.abhijith.filter.videofilters.gl.GlFramebufferObject;
+import com.abhijith.filter.videofilters.egl.GlFramebufferObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;

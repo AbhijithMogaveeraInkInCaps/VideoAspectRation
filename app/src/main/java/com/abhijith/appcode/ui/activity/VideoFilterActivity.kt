@@ -6,7 +6,7 @@ import android.content.Context
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Bundle
-import com.daasuu.gpuv.egl.filter.*;
+//import com.daasuu.gpuv.egl.filter.*;
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.Toast
@@ -17,8 +17,11 @@ import com.abhijith.appcode.ui.view.MySimpleExoPlayer
 import com.abhijith.filter.videofilters.FillMode
 import com.abhijith.filter.videofilters.FillModeCustomItem
 import com.abhijith.filter.videofilters.composer.Mp4Composer
+import com.abhijith.filter.videofilters.filter.GlFilterGroup
+import com.abhijith.filter.videofilters.filter.GlRGBFilter
+import com.abhijith.filter.videofilters.player.GPUPlayerView
 //import com.abhijith.filter.videofilters.filter.*
-import com.daasuu.gpuv.player.GPUPlayerView
+//import com.daasuu.gpuv.player.GPUPlayerView
 import java.io.File
 
 
