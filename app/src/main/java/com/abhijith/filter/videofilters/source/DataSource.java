@@ -1,0 +1,14 @@
+package com.abhijith.filter.videofilters.source;
+
+import androidx.annotation.NonNull;
+
+import java.io.FileDescriptor;
+
+public interface DataSource {
+    @NonNull
+    FileDescriptor getFileDescriptor();
+
+    interface Listener {
+        void onError(Exception e);
+    }
+}

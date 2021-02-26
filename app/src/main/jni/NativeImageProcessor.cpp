@@ -316,7 +316,7 @@ static inline void releaseArray(JNIEnv *env, jintArray array1, jint *array2) {
 
 
 JNIEXPORT jintArray
-Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_applyRGBCurve(
+Java_com_abhijith_filter_photofilters_imageprocessors_NativeImageProcessor_applyRGBCurve(
         JNIEnv *env,
         jobject thiz,
         jintArray pixels,
@@ -334,7 +334,7 @@ Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_applyRGBCurv
 }
 
 JNIEXPORT jintArray
-Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_applyChannelCurves(
+Java_com_abhijith_filter_photofilters_imageprocessors_NativeImageProcessor_applyChannelCurves(
         JNIEnv *env,
         jobject thiz,
         jintArray pixels,
@@ -358,7 +358,7 @@ Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_applyChannel
 }
 
 JNIEXPORT jintArray
-Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_doBrightness(
+Java_com_abhijith_filter_photofilters_imageprocessors_NativeImageProcessor_doBrightness(
         JNIEnv *env,
         jobject thiz,
         jintArray pixels,
@@ -373,7 +373,7 @@ Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_doBrightness
     return result;
 }
 
-JNIEXPORT jintArray Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_doContrast(
+JNIEXPORT jintArray Java_com_abhijith_filter_photofilters_imageprocessors_NativeImageProcessor_doContrast(
         JNIEnv *env,
         jobject thiz,
         jintArray pixels,
@@ -389,7 +389,7 @@ JNIEXPORT jintArray Java_com_abhijith_photofilters_imageprocessors_NativeImagePr
 }
 
 JNIEXPORT jintArray
-Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_doColorOverlay(
+Java_com_abhijith_filter_photofilters_imageprocessors_NativeImageProcessor_doColorOverlay(
         JNIEnv *env,
         jobject thiz,
         jintArray pixels,
@@ -408,7 +408,7 @@ Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_doColorOverl
 }
 
 JNIEXPORT jintArray
-Java_com_abhijith_photofilters_imageprocessors_NativeImageProcessor_doSaturation(
+Java_com_abhijith_filter_photofilters_imageprocessors_NativeImageProcessor_doSaturation(
         JNIEnv *env, jobject thiz,
         jintArray pixels, float level,
         jint width, jint height

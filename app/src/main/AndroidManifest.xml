@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.abhijith.videoaspectration">
+    package="com.abhijith.appcode">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -16,19 +16,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VideoAspectRation">
-        <activity android:name=".BitmapCroppingActivity"></activity>
-        <activity android:name=".ImageViewActivity" />
-        <activity android:name=".ImageCroppingActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.abhijith.appcode.ui.activity.BitmapCroppingActivity"/>
+        <activity android:name="com.abhijith.appcode.ui.activity.ImageViewActivity" />
+        <activity android:name="com.abhijith.appcode.ui.activity.ImageCroppingActivity" />
+        <activity android:name="com.abhijith.appcode.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VideoCaptureActivity" />
-        <activity android:name=".ImageCaptureActivity" />
-        <activity android:name=".FilterActivity" />
+        <activity android:name="com.abhijith.appcode.ui.activity.VideoCaptureActivity" />
+        <activity android:name="com.abhijith.appcode.ui.activity.ImageCaptureActivity" />
+        <activity android:name="com.abhijith.appcode.ui.activity.FilterActivity" />
     </application>
 
 </manifest>

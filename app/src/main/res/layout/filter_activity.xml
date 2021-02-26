@@ -4,12 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <com.abhijith.videoaspectration.MySimpleExoPlayer
+    tools:context=".ui.activity.MainActivity">
+    <com.abhijith.appcode.ui.view.MovieWrapperView
+        android:id="@+id/layout_movie_wrapper"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/mySimpleExoPlayer"
+        app:layout_constraintBottom_toBottomOf="@id/mySimpleExoPlayer"
+        app:layout_constraintEnd_toEndOf="@id/mySimpleExoPlayer"
+        app:layout_constraintStart_toStartOf="@id/mySimpleExoPlayer"
+        android:layout_height="wrap_content"/>
+    <com.abhijith.appcode.ui.view.MySimpleExoPlayer
         android:id="@+id/mySimpleExoPlayer"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@android:color/background_dark"
         android:letterSpacing="0.1"
