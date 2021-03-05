@@ -11,10 +11,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.abhijith.appcode.databinding.ActivityImageViewBinding
 import com.abhijith.appcode.ui.activity.ImageCroppingActivity
+import com.abhijith.appcode.ui.view.FilterPreview
+import com.abhijith.appcode.ui.view.Filters
+import com.abhijith.appcode.ui.view.Filters.Companion.getAllFilters
 import java.io.File
 
 
-class ImageViewActivity : AppCompatActivity() {
+class ImageViewActivity : AppCompatActivity(),FilterPreview.ImageFilterChangedListener {
 
     companion object {init {
         System.loadLibrary("NativeImageProcessor")
@@ -31,6 +34,8 @@ class ImageViewActivity : AppCompatActivity() {
         val file = File(intent.getStringExtra(ImageCroppingActivity.ImagePath)!!)
         binding.ivImagePreview.setImageURI(Uri.fromFile(file))
 
+        binding.filterPreview.setImagePreviewItems(Uri.fromFile(file),*getAllFilters())
+        binding.filterPreview.setOnImageFilterChangedListener(this)
         val l = 0x00000000
         binding.btnColorTwo.setOnClickListener {
             binding.ivImagePreview.clearColorFilter()
@@ -93,6 +98,11 @@ class ImageViewActivity : AppCompatActivity() {
                         binding.ivImagePreview.setImageBitmap(outputImage)
 */
         }
+    }
+
+    override fun onFilterChanged(colorFilter: LightingColorFilter) {
+        binding.ivImagePreview.clearColorFilter()
+        binding.ivImagePreview.setColorFilter(colorFilter)
     }
 }
 

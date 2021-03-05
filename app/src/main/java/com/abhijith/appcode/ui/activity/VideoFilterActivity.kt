@@ -13,6 +13,8 @@ import android.widget.Toast
 import androidx.annotation.AnyRes
 import androidx.appcompat.app.AppCompatActivity
 import com.abhijith.appcode.databinding.FilterActivityBinding
+import com.abhijith.appcode.ui.view.FilterPreview
+import com.abhijith.appcode.ui.view.Filters.Companion.getAllFilters
 import com.abhijith.appcode.ui.view.MySimpleExoPlayer
 import com.abhijith.filter.videofilters.FillMode
 import com.abhijith.filter.videofilters.FillModeCustomItem
@@ -25,7 +27,7 @@ import com.abhijith.filter.videofilters.player.GPUPlayerView
 import java.io.File
 
 
-class FilterActivity : AppCompatActivity() {
+class FilterActivity : AppCompatActivity(),FilterPreview.VideoFilterChangedListener {
     @SuppressLint("SdCardPath")
     lateinit var binding: FilterActivityBinding
     val gpuPlayerView by lazy{
@@ -37,13 +39,14 @@ class FilterActivity : AppCompatActivity() {
         binding = FilterActivityBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-
         val srcFile = File(intent.getStringExtra(video_path)!!)
         val destFile = File(srcFile.parent, "mono.mp4")
 
         binding.mySimpleExoPlayer.apply {
             play(Uri.fromFile(srcFile))
         }
+        binding.filterPreview.setVideoPreviewItems(Uri.fromFile(srcFile),*getAllFilters())
+        binding.filterPreview.setOnVideoFilterChangedListener(this@FilterActivity)
 //
         // set SimpleExoPlayer
         gpuPlayerView.setSimpleExoPlayer(binding.mySimpleExoPlayer.simpleExoPlayer)
@@ -186,6 +189,11 @@ class FilterActivity : AppCompatActivity() {
                 })
             start()
         }*/
+    }
+
+    override fun onFilterChanged(colorFilter: GlFilterGroup) {
+        gpuPlayerView.setGlFilter(colorFilter)
+
     }
 }
 

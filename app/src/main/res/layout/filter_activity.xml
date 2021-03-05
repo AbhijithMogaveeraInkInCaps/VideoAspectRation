@@ -37,7 +37,16 @@
         app:show_timeout="5000"
         app:use_controller="true" />
 
+    <com.abhijith.appcode.ui.view.FilterPreview
+        android:id="@+id/filterPreview"
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="100dp"/>
     <ScrollView
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
